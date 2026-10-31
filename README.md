@@ -1,4 +1,4 @@
-# # Exp 6 Analysis and Visualization of COVID-19 Dataset using Python
+# Exp 6 Analysis and Visualization of COVID-19 Dataset using Python
 
 **Date:**
 
@@ -51,12 +51,93 @@ Add appropriate titles, axis labels, legends, and other necessary labels to the 
 Execute the program and analyze the generated visualizations to identify meaningful trends and relationships in the COVID-19 dataset.
 
 ## PROGRAM:
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
 
-*(Paste the Python code for COVID-19 Dataset Analysis and Visualization here.)*
+url = "https://raw.githubusercontent.com/mjchidroop/plotting_final/main/covid_case.csv"
+data = pd.read_csv(url)
+
+print("Dataset loaded successfully.")
+
+print("First 5 rows:")
+print(data.head())
+
+print("\nDataset Shape:")
+print(data.shape)
+
+print("\nColumn Names:")
+print(data.columns)
+
+print("\nMissing Values:")
+print(data.isnull().sum())
+
+data = data.dropna()
+data['Date'] = pd.to_datetime(data['Date'])
+
+print("\nTotal Records:", len(data))
+
+print("\nStatistical Summary:")
+print(data.describe())
+
+global_cases = data.groupby('Date')['Confirmed'].sum()
+
+plt.figure(figsize=(10, 5))
+plt.plot(global_cases.index, global_cases.values, color='tab:blue')
+plt.title("Global Confirmed COVID-19 Cases Over Time")
+plt.xlabel("Date")
+plt.ylabel("Confirmed Cases")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+top10 = data.groupby('Country')['Confirmed'].sum().sort_values(ascending=False).head(10)
+
+plt.figure(figsize=(10, 5))
+top10.plot(kind='bar', color='tab:orange')
+plt.title("Top 10 Countries by Confirmed Cases")
+plt.xlabel("Country")
+plt.ylabel("Confirmed Cases")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+top5 = data.groupby('Country')['Confirmed'].sum().sort_values(ascending=False).head(5)
+
+plt.figure(figsize=(8, 8))
+plt.pie(top5, labels=top5.index, autopct='%1.1f%%', startangle=140)
+plt.title("Top 5 Countries Case Distribution")
+plt.axis('equal')
+plt.show()
+
+plt.figure(figsize=(8, 5))
+plt.scatter(data['Confirmed'], data['Deaths'], alpha=0.5, color='tab:red')
+plt.title("Confirmed Cases vs Deaths")
+plt.xlabel("Confirmed Cases")
+plt.ylabel("Deaths")
+plt.tight_layout()
+plt.show()
+
+plt.figure(figsize=(8, 5))
+plt.hist(data['Active'], bins=20, color='tab:green', edgecolor='black')
+plt.title("Distribution of Active Cases")
+plt.xlabel("Active Cases")
+plt.ylabel("Frequency")
+plt.tight_layout()
+plt.show()
+
+print("Total records analysed:", len(data))
+print("Number of countries:", data['Country'].nunique())
+print("Date range:", data['Date'].min().date(), "to", data['Date'].max().date())
+print("Top 5 countries by confirmed cases:")
+print(top5)
+```
 
 ## OUTPUT:
 
 *(Paste the execution output showing the dataset information, statistical summary, and generated Line Graph, Bar Chart, Pie Chart, Scatter Plot, and Histogram.)*
+
+
 
 ## RESULT:
 
