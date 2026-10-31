@@ -52,6 +52,9 @@ Execute the program and analyze the generated visualizations to identify meaning
 
 ## PROGRAM:
 ```python
+# Name: Chidroop M J
+# Register number : 212225240029
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -135,7 +138,28 @@ print(top5)
 
 ## OUTPUT:
 
-*(Paste the execution output showing the dataset information, statistical summary, and generated Line Graph, Bar Chart, Pie Chart, Scatter Plot, and Histogram.)*
+### Dataset Information: 
+<img width="1861" height="411" alt="image" src="https://github.com/user-attachments/assets/6bd8e8ce-6d00-4221-878c-05eb2188286b" />
+
+### Statistical Summary:  
+<img width="1847" height="334" alt="image" src="https://github.com/user-attachments/assets/e4937ea4-1b81-41e4-a4ea-a360fe9d4fd0" />
+
+### Plots:
+### Line Graph:
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/e790a8a0-ac58-410b-90db-21aa3f807a05" />
+  
+### Bar Chart:
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/1dcb9218-d2b8-496d-a525-5ab71134f09d" />
+
+### Pie Chart:
+<img width="989" height="658" alt="image" src="https://github.com/user-attachments/assets/18886393-aa22-439b-95d6-27736a46e69c" />
+
+### Scatter plot:
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/c6d2d56b-0fbe-4a62-9605-b97ccd038807" />
+
+### Histogram:
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/2d524865-a60b-46a4-9d7b-17cf81491ee3" />
+
 
 
 
